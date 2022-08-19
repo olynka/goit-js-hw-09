@@ -1,7 +1,11 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-// import Notiflix from 'notiflix';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import { Notify } from "notiflix";
+
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+import { Notify } from "notiflix";
 
 refs = {
     inputEl: document.querySelector('#datetime-picker'),
@@ -36,6 +40,8 @@ function convertMs(ms) {
 // console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 // console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
+flatpickr('#datetime-picker', options);
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -57,7 +63,6 @@ function addLeadingZero(value) {
 
 
 
-flatpickr('#datetime-picker', options);
 
 refs.BtnEl.addEventListener('click', handleStartData);
 
