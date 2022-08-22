@@ -13,7 +13,8 @@ refs = {
     dataSecondsEl: document.querySelector('[data-seconds]'),
  
 };
-const Notification_Deley=1000
+const Notification_Show = 1000;
+
 let interval = null;
 let currentTime = null;
 function convertMs(ms) {
@@ -72,7 +73,7 @@ function handleStartData() {
             refs.BtnEl.removeAttribute('disabled');
             refs.inputEl.removeAttribute('disabled');
         }
-    },Notification_Deley);
+    },1000);
 };
 function showNotification() {
     Notiflix.Notify.info('Time is up');
@@ -93,7 +94,7 @@ function showNotification() {
     // Custom options
   },
 )
-    },Notification_Deley);
+    },Notification_Show);
 
 
 }
