@@ -1,14 +1,19 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import { Notify } from "notiflix";
+
+import Notiflix from 'notiflix';
+
 refs = {
     inputEl: document.querySelector('#datetime-picker'),
     BtnEl: document.querySelector('button[data-start]'),
     dataDaysEl: document.querySelector('[data-days]'),
     dataHoursEl: document.querySelector('[data-hours]'),
     dataMinutesEl: document.querySelector('[data-minutes]'),
-    dataSecondsEl: document.querySelector('[data-seconds]')
+    dataSecondsEl: document.querySelector('[data-seconds]'),
+ 
 };
+const Notification_Deley=1000
 let interval = null;
 let currentTime = null;
 function convertMs(ms) {
@@ -63,9 +68,32 @@ function handleStartData() {
         refs.dataSecondsEl.textContent = addLeadingZero(seconds);
         if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
             clearInterval(interval);
-            Notify.success('end');
+          showNotification()
             refs.BtnEl.removeAttribute('disabled');
             refs.inputEl.removeAttribute('disabled');
         }
-    }, 1000);
+    },Notification_Deley);
 };
+function showNotification() {
+    Notiflix.Notify.info('Time is up');
+    setTimeout(() => {
+  Notiflix.Confirm.prompt(
+  'Hello',
+  'Did you like our auction?',
+  'Awesome!',
+  'Answer',
+  'Cancel',
+  function okCb(clientAnswer) {
+    console.log('Client answer is: ' + clientAnswer);
+  },
+  function cancelCb(clientAnswer) {
+    console.log('Client answer was: ' + clientAnswer);
+  },
+  {
+    // Custom options
+  },
+)
+    },Notification_Deley);
+
+
+}
