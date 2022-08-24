@@ -4,7 +4,7 @@ import { Notify } from "notiflix";
 
 import Notiflix from 'notiflix';
 
-refs = {
+const refs = {
     inputEl: document.querySelector('#datetime-picker'),
     BtnEl: document.querySelector('button[data-start]'),
     dataDaysEl: document.querySelector('[data-days]'),
