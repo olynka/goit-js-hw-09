@@ -44,7 +44,7 @@ const options = {
   onClose(selectedDates) {
      if (selectedDates[0].getTime() - Date.now() <= 0) {
             Notify.warning('Please choose a date in the future');
-            ref.BtnEl.setAttribute('disabled', 'disabled');
+            refs.BtnEl.setAttribute('disabled', 'disabled');
             return;
         }
         refs.BtnEl.removeAttribute('disabled');
